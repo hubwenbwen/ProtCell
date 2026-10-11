@@ -1,0 +1,130 @@
+{
+  "files": [
+    {
+      "path": "CLR_data/Dataset74.h5ad",
+      "study": "Sacco et al. (2022)",
+      "notebooks": [
+        "Cluster",
+        "Annotation"
+      ],
+      "bytes": 757801272,
+      "sha256": "a5731318abbaac25721a467baf3b89406d800e59adf7963f367e718e1db63b1b",
+      "shape": [
+        124448,
+        183
+      ]
+    },
+    {
+      "path": "CLR_data/Dataset83.h5ad",
+      "study": "Kotliarov et al. (2020)",
+      "notebooks": [
+        "Annotation",
+        "Imputation",
+        "Unobserved"
+      ],
+      "bytes": 159113557,
+      "sha256": "5c30aa5c8d8b72dc1aa1be10d11f761d379c58361d6586ade694892eb4c4b1bc",
+      "shape": [
+        53201,
+        79
+      ]
+    },
+    {
+      "path": "CLR_data/Dataset107.h5ad",
+      "study": "Beneyto-Calabuig et al. (2023)",
+      "notebooks": [
+        "Cluster",
+        "Panel_Search"
+      ],
+      "bytes": 61949568,
+      "sha256": "03cf6f8c0135e298f749846d12f8431c11ab6e81cad30b974582843e56ff9247",
+      "shape": [
+        100620,
+        140
+      ]
+    },
+    {
+      "path": "ARCSIN_data/Dataset119.h5ad",
+      "study": "Peterson et al. (2021)",
+      "notebooks": [
+        "Imputation"
+      ],
+      "bytes": 135274696,
+      "sha256": "9098abd611442a1038d320436f9109d2b2cf6c7d45991393b86ec28143f2d832",
+      "shape": [
+        420000,
+        35
+      ]
+    },
+    {
+      "path": "ARCSIN_data/Dataset34.h5ad",
+      "study": "Wagner et al. (2019)",
+      "notebooks": [
+        "Imputation"
+      ],
+      "bytes": 523492152,
+      "sha256": "b947d238b933b8d0d7c8f4fc404c3d0d30a3e8e8dc193a01a1a9249cecd25543",
+      "shape": [
+        643898,
+        35
+      ]
+    },
+    {
+      "path": "panel_search/dataset101_discovery.h5ad",
+      "study": "Sparks et al. (2023)",
+      "notebooks": [
+        "Panel_Search"
+      ],
+      "bytes": 12708359,
+      "sha256": "d0c64d449f6a85cc37748a2b0824c7ae28dce0f87a20850f50f34ce110b2ab0e",
+      "shape": [
+        24000,
+        128
+      ]
+    },
+    {
+      "path": "panel_search/dataset101_selection.h5ad",
+      "study": "Sparks et al. (2023)",
+      "notebooks": [
+        "Panel_Search"
+      ],
+      "bytes": 3748536,
+      "sha256": "7832a21fb2ac8535bb5b2d4f92fd60cfc8de85fca43c82a7ff5914800f4aeb2a",
+      "shape": [
+        7200,
+        128
+      ]
+    },
+    {
+      "path": "panel_search/dataset101_test.h5ad",
+      "study": "Sparks et al. (2023)",
+      "notebooks": [
+        "Panel_Search"
+      ],
+      "bytes": 12663480,
+      "sha256": "034d72d05a572311ff07191c7ba6f378c327dc26c0e01e07577f5576aa87dd72",
+      "shape": [
+        24000,
+        128
+      ]
+    },
+    {
+      "path": "panel_search/discovery_protein_statistics.npz",
+      "study": "Sparks et al. (2023)",
+      "notebooks": [
+        "Panel_Search"
+      ],
+      "bytes": 4011,
+      "sha256": "44ce1cc266d6f9172338bf4fddd4092bf1f28ef443bd3c11edfa10704e375b27"
+    },
+    {
+      "path": "panel_search/panel_definition.json",
+      "study": "ProtCell panel and completion targets",
+      "notebooks": [
+        "Panel_Search"
+      ],
+      "bytes": 3248,
+      "sha256": "c3754f85e092738a6114d72af1d3864b13db777f70f533b2785922447ce56366"
+    }
+  ]
+}

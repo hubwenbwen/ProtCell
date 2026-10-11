@@ -43,6 +43,20 @@ python train.py --config_path configs/large-scale-new-10_config.yaml \
 
 Training settings are defined in the [YAML configuration](configs/large-scale-new-10_config.yaml). Checkpoints are saved under `checkpoints/protcell_pretrain/` and TensorBoard logs under `logs/protcell_pretrain/`.
 
+## Data and pretrained model
+
+Download the example data and pretrained checkpoint from the [v1.0.0 release](https://github.com/hubwenbwen/ProtCell/releases/tag/v1.0.0). Run these commands from the repository root:
+
+```bash
+curl -fL --retry 3 https://github.com/hubwenbwen/ProtCell/releases/download/v1.0.0/protcell_example_data.tar.gz -o protcell_example_data.tar.gz
+tar -xzf protcell_example_data.tar.gz
+mkdir -p checkpoints
+curl -fL --retry 3 https://github.com/hubwenbwen/ProtCell/releases/download/v1.0.0/protcell_pretrained.pt -o checkpoints/protcell_pretrained.pt
+curl -fL --retry 3 https://github.com/hubwenbwen/ProtCell/releases/download/v1.0.0/protcell_pretrained.json -o checkpoints/protcell_pretrained.json
+```
+
+The archive extracts to `results/data/`. Dataset details and checksums are listed in its [inventory](results/data/README.md) and [manifest](results/data/manifest.json).
+
 ## Downstream examples
 
 The notebooks demonstrate model loading, task-specific adaptation, prediction, evaluation and plotting.
@@ -55,7 +69,7 @@ The notebooks demonstrate model loading, task-specific adaptation, prediction, e
 | [Unobserved](results/Unobserved.ipynb) | Inference and analysis of unmeasured proteins. |
 | [Panel Search](results/Panel_Search.ipynb) | Protein-panel selection and downstream evaluation. |
 
-Set the data and checkpoint paths in each notebook, then run its cells with the **ProtCell (Python 3.10)** kernel. See the [notebook guide](results/README.md) for data requirements, run options and output locations.
+Place the example data in `results/data/` and the pretrained checkpoint at `checkpoints/protcell_pretrained.pt`, then run the notebooks with the **ProtCell (Python 3.10)** kernel. See the [notebook guide](results/README.md) for data requirements, run options and output locations.
 
 ```bash
 jupyter lab

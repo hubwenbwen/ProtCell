@@ -27,3 +27,9 @@ results/outputs/
 .cache/
 .runtime-cache/
 *.tmp
+
+# Track example-data documentation and configuration; large input files stay excluded.
+!results/data/
+!results/data/CLR_data/
+!results/data/ARCSIN_data/
+!results/data/panel_search/

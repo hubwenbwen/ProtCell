@@ -29,21 +29,23 @@ Select the **ProtCell (Python 3.10)** kernel. An NVIDIA GPU is recommended for f
 
 ### Paths and model checkpoints
 
-Update the setup cell of each notebook for your installation:
+The setup cell detects the project root and uses the bundled data and named pretrained checkpoint:
 
 ```python
 from pathlib import Path
 
 PROJECT_ROOT = Path("/absolute/path/to/ProtCell")
-DATA_ROOT = Path("/absolute/path/to/protein_data")
-BASE_MODEL_PATH = PROJECT_ROOT / "checkpoints/basemodel/large-scale-new-10/model_369999.pt"
+DATA_ROOT = PROJECT_ROOT / "results/data"
+BASE_MODEL_PATH = PROJECT_ROOT / "checkpoints/protcell_pretrained.pt"
 ```
 
-`BASE_MODEL_PATH` should point to an available pretrained checkpoint. Model checkpoints contain the architecture configuration and protein vocabulary. Set the task-specific checkpoint paths in the subsequent configuration cells when using a saved adapted model or classification head.
+Place the pretrained checkpoint at `checkpoints/protcell_pretrained.pt`, or set `BASE_MODEL_PATH` to another checkpoint. Model checkpoints contain the architecture configuration and protein vocabulary. Set the task-specific checkpoint paths in the subsequent configuration cells when using a saved adapted model or classification head.
 
 Run the notebook from a fresh kernel in cell order. The `RUN_*` switches enable training, inference, evaluation and plotting. Fine-tuning parameters, data splits and target proteins are specified in the relevant cells.
 
 ### Example data
+
+Download the data bundle and checkpoint following the repository README, then extract the bundle from the project root so that inputs are placed under `results/data/`.
 
 The examples use preprocessed AnnData (`.h5ad`) files. `adata.X` contains protein abundances, `adata.var_names` contains harmonized protein identities, and `adata.obs` contains the metadata required for each analysis. Use the CLR-preprocessed CITE-seq or arcsinh-preprocessed CyTOF inputs expected by the selected example. `ARCSIN` is the label used for the arcsinh data directory.
 
@@ -55,7 +57,7 @@ The examples use preprocessed AnnData (`.h5ad`) files. `adata.X` contains protei
 | Peterson et al. (2021) | `ARCSIN_data/Dataset119.h5ad` | `condition` for the condition-based imputation split. |
 | Wagner et al. (2019) | `ARCSIN_data/Dataset34.h5ad` | Cell identities for the half-cell imputation split. |
 
-Panel Search uses prepared Sparks et al. (2023) discovery, selection and test files under `DATA_ROOT/panel_search/`, together with discovery protein statistics and the supplied [panel/target definitions](panel_definition.json). The notebook specifies the corresponding paths.
+Panel Search uses the prepared Sparks et al. (2023) discovery, selection and test files under `DATA_ROOT/panel_search/`, together with discovery protein statistics and [panel/target definitions](data/panel_search/panel_definition.json). Keep these fixed splits and their statistics together. See the [data inventory](data/README.md) for all required files and [checksums](data/manifest.json).
 
 ## Analysis workflows
 
