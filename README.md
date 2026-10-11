@@ -45,14 +45,12 @@ Training settings are defined in the [YAML configuration](configs/large-scale-ne
 
 ## Data and pretrained model
 
-Download the example data and pretrained checkpoint from the [v1.0.0 release](https://github.com/hubwenbwen/ProtCell/releases/tag/v1.0.0). Run these commands from the repository root:
+Download `protcell_example_data.tar.gz`, `protcell_pretrained.pt` and `protcell_pretrained.json` from the [v1.0.0 release](https://github.com/hubwenbwen/ProtCell/releases/tag/v1.0.0). Sign in to an account with repository access if the repository is private. Place the downloaded files in the repository root, then run:
 
 ```bash
-curl -fL --retry 3 https://github.com/hubwenbwen/ProtCell/releases/download/v1.0.0/protcell_example_data.tar.gz -o protcell_example_data.tar.gz
 tar -xzf protcell_example_data.tar.gz
 mkdir -p checkpoints
-curl -fL --retry 3 https://github.com/hubwenbwen/ProtCell/releases/download/v1.0.0/protcell_pretrained.pt -o checkpoints/protcell_pretrained.pt
-curl -fL --retry 3 https://github.com/hubwenbwen/ProtCell/releases/download/v1.0.0/protcell_pretrained.json -o checkpoints/protcell_pretrained.json
+mv protcell_pretrained.pt protcell_pretrained.json checkpoints/
 ```
 
 The archive extracts to `results/data/`. Dataset details and checksums are listed in its [inventory](results/data/README.md) and [manifest](results/data/manifest.json).
