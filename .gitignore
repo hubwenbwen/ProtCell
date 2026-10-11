@@ -1,0 +1,29 @@
+# Python and notebooks
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+.vscode/
+# Data, model weights and generated experiment results
+data/
+databank_pretrain/
+databank_clr/
+databank_arcsin/
+checkpoints/
+checkpoints_finetune/
+logs/
+*.log
+results/outputs/
+*.h5ad
+*.npz
+*.pt
+*.pth
+# Temporary caches
+.cache/
+.runtime-cache/
+*.tmp

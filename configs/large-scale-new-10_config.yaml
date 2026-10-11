@@ -1,0 +1,47 @@
+base:
+  metadata_path: metadata.json
+  test_size: 0
+  model_path: null
+  training_state_path: null
+  seed: 42
+  tokenizer_path: tokenizer_all_vars.json
+  expr_name: large-scale-new-10
+databank:
+  cache_size: 8192
+  technology_preprocess:
+    CyTOF: ARCSIN
+    CITE-seq: CLR
+model:
+  d_model: 256
+  hidden_dim: 512
+  nhead: 8
+  num_layers: 8
+  dim_feedforward: 2048
+  dropout: 0.15
+  decoder_use_cls: true
+  decoder_cls_cat_feat: false
+  decoder_cls_global_predict: true
+trainer:
+  device: cuda
+  batch_size: 512
+  lr: 0.001
+  weight_decay: 0.0001
+  gradient_accumulation_steps: 32
+  log_epoch: 1
+  log_steps: 10
+  optimizer_cls: adam
+  scheduler_cls: cosine
+  scheduler_kwargs:
+    T_max: 10
+  warmup_ratio: 0.2
+  masked_ratio: 0.15
+  loss_type: mse
+  precision: bf16
+training:
+  num_epochs: 500
+  save: true
+  save_dir: ./checkpoints
+  save_epoch_interval: 1
+  save_steps_interval: 10000
+  log_dir: ./logs
+  num_workers: 2

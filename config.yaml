@@ -1,0 +1,58 @@
+# config.yaml
+
+# === Data ===
+base:
+  metadata_path: "databank_pretrain/metadata.json"
+  test_size: 0
+  model_path: null
+  training_state_path: null
+  seed: 42
+  tokenizer_path: "data_info/tokenizer_all_vars.json"
+  expr_name: test  # expr_name: test_expr
+
+databank:
+  cache_size: 8
+  technology_preprocess:
+    "CyTOF": "ARCSIN"
+    "CITE-seq": "CLR"
+
+# === model ===
+model:
+  d_model: 64
+  hidden_dim: 128
+  nhead: 8
+  num_layers: 4
+  dim_feedforward: 128
+  dropout: 0.15
+  decoder_use_cls: true
+  decoder_cls_cat_feat: false
+  decoder_cls_global_predict: true
+
+# === Trainer ===
+trainer:
+  device: cuda
+  batch_size: 1024
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  gradient_accumulation_steps: 32
+  log_epoch: 1
+  log_steps: 10
+  optimizer_cls: adam
+  scheduler_cls: cosine
+  scheduler_kwargs: {
+    T_max: 10
+  }
+  warmup_ratio: 0.2
+  masked_ratio: 0.15
+  loss_type: smooth_l1 # mse or smooth_l1 or huber
+  precision: bf16 # bf16 or fp16, float32
+
+# === Trainings ===
+training:
+  num_epochs: 500
+  save: true
+  save_dir: ./checkpoints
+  save_epoch_interval: 1
+  save_steps_interval: 10000
+  log_dir: ./logs
+  num_workers: 2
