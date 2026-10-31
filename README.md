@@ -59,6 +59,45 @@ torchrun --standalone --nproc_per_node=2 train_musa.py \
   base.expr_name=protcell_pretrain
 ```
 
+## Pretraining on NVIDIA GPUs (CUDA)
+
+Use a CUDA-enabled PyTorch environment with Python 3.10, then install the dependencies:
+
+```bash
+python -m pip install -r requirements.txt
+python -c "import torch; print(torch.cuda.is_available())"
+```
+
+Prepare the DataBank shards as described above. From the repository root, run [train.py](train.py) with the [CUDA configuration](configs/large-scale-new-10_config.yaml).
+
+Single GPU:
+
+```bash
+mkdir -p protcell_pretrain_cuda
+CUDA_VISIBLE_DEVICES=0 python train.py \
+  --config_path configs/large-scale-new-10_config.yaml \
+  base.metadata_path=./databank_pretrain/metadata.json \
+  base.tokenizer_path=./data_info/tokenizer_all_vars.json \
+  base.expr_name=protcell_pretrain_cuda \
+  trainer.device=cuda \
+  databank.cache_size=8
+```
+
+Multiple GPUs on one node (two GPUs shown):
+
+```bash
+mkdir -p protcell_pretrain_cuda
+CUDA_VISIBLE_DEVICES=0,1 torchrun --standalone --nproc_per_node=2 train.py \
+  --config_path configs/large-scale-new-10_config.yaml \
+  base.metadata_path=./databank_pretrain/metadata.json \
+  base.tokenizer_path=./data_info/tokenizer_all_vars.json \
+  base.expr_name=protcell_pretrain_cuda \
+  trainer.device=cuda \
+  databank.cache_size=8
+```
+
+Set `CUDA_VISIBLE_DEVICES` to the GPU IDs to use and `--nproc_per_node` to their count. Adjust `trainer.batch_size` and `trainer.gradient_accumulation_steps` for your GPU memory. The configuration uses BF16; use `trainer.precision=float32` on GPUs without BF16 support. Checkpoints are saved under `checkpoints/protcell_pretrain_cuda/` and TensorBoard logs under `logs/protcell_pretrain_cuda/`.
+
 ## Data and pretrained model
 
 Download `protcell_example_data.tar.gz`, `protcell_pretrained.pt` and `protcell_pretrained.json` from the [v1.0.0 release](https://github.com/hubwenbwen/ProtCell/releases/tag/v1.0.0). Place the downloaded files in the repository root, then run:
