@@ -1,4 +1,4 @@
-"""MTT S5000 MUSA masked pretraining entry point, extracted from 99_musa_patch/train.py."""
+"""Masked protein-abundance pretraining on MUSA MTT S5000 GPUs."""
 import torch_musa  # Register the MUSA device before importing the trainer and utilities.
 
 from model.tokenizer import ProteinTokenizer
